@@ -1,9 +1,10 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+import express from "express"
+import dotenv from "dotenv"
+import mongoose from "mongoose"
+import cookieParser from "cookie-parser"
+import cors from "cors"
 
+import authRoutes from "./routes/auth.js"
 
 const app = express();
 dotenv.config(); //Cela charge les variables d'environnement à partir d'un fichier .env 
@@ -21,6 +22,8 @@ const db_connect = async () => {
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+
+app.use("/api/auth", authRoutes);
 
 app.listen(8800,()=>{
     db_connect();
