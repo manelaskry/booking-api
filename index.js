@@ -25,6 +25,15 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 
+//*import User from "./models/User.js"
+
+//async function insert(){
+   // await User.create({
+ //       username : "manel"
+ //   });
+//}
+//insert();
+
 app.listen(8800,()=>{
     db_connect();
     console.log( "server running on port 8800");
