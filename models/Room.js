@@ -1,21 +1,30 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const RoomSchema = new mongoose.Schema(
     {
-        roomNumber:[{ number:Number, unvailableDates: { type: [Dates]} }],
-        capacity:{
-            type:Number,
-            require:true,
-            
+        roomNumber: {
+            type: Number,
+            required: true,
+            unique: true
         },
-        disponibility:{
-            type:String,
-            require:true,
+        capacity: {
+            type: Number,
+            required: true
+        },
+        equipment: {
+            type: String,
+            required: true
+        },
+        unavailableDates: {
+            type: [String],
+            default: []
         }
     },
     {
-        timestamps : true 
+        timestamps: true
     }
 );
 
-export default mongoose.model("Room",RoomSchema);
+const Room = mongoose.model("Room", RoomSchema);
+
+export default Room;

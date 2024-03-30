@@ -5,6 +5,9 @@ import cookieParser from "cookie-parser"
 import cors from "cors"
 
 import authRoutes from "./routes/auth.js"
+import userRoutes from "./routes/users.js"
+import roomRoutes from "./routes/rooms.js"
+import resRoutes from "./routes/reservation.js"
 
 const app = express();
 dotenv.config(); //Cela charge les variables d'environnement à partir d'un fichier .env 
@@ -24,6 +27,9 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/user", userRoutes);
+app.use("/api/room", roomRoutes);
+app.use("/api/res", resRoutes);
 
 //*import User from "./models/User.js"
 
