@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const ReservationSchema = new mongoose.Schema(
     {
-        Room: { 
+        room: { 
             type: mongoose.Schema.Types.ObjectId, 
             ref: 'Room', 
             required: true },
