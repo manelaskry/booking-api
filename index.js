@@ -9,6 +9,7 @@ import userRoutes from "./routes/users.js"
 import roomRoutes from "./routes/rooms.js"
 import resRoutes from "./routes/reservation.js"
 
+
 const app = express();
 dotenv.config(); //Cela charge les variables d'environnement à partir d'un fichier .env 
 
@@ -30,6 +31,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/room", roomRoutes);
 app.use("/api/res", resRoutes);
+app.use("/api/getroom", roomRoutes);
 
 //*import User from "./models/User.js"
 
