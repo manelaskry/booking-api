@@ -1,10 +1,13 @@
 import Room from "../models/Room.js";
 import Reservation from "../models/Reservation.js";
+import { verifyToken } from "../utils/verifyToken.js";
+
 
 export const createReservation = async (req, res, next) => {
     const { roomId, startTime, endTime } = req.body;
 
     try {
+        verifyToken(req, res, async () => {
         const room = await Room.findById(roomId);
         if (!room) {
             return res.status(404).send("Room not found");
@@ -39,6 +42,7 @@ export const createReservation = async (req, res, next) => {
         await reservation.save();
 
         res.status(200).json(reservation);
+    });
     } catch (error) {
         next(error);
     }

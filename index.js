@@ -33,6 +33,10 @@ app.use("/api/room", roomRoutes);
 app.use("/api/res", resRoutes);
 app.use("/api/getroom", roomRoutes);
 
+
+app.use("/api/logout", authRoutes);
+
+
 //*import User from "./models/User.js"
 
 //async function insert(){
